@@ -15,7 +15,6 @@ export default function InputBox(props: {
       border-wonder-purple
       p-2
       shadow-sm
-      focus:ring-purple-300
       "
       name={props.name}
       id={props.id}

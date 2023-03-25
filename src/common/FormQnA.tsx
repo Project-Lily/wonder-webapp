@@ -1,9 +1,33 @@
 import InputBox from "./InputBox";
 
-export default function Form() {
+export default function FormQnA(ws: any) {
+  const handleSubmit = (event: any) => {
+    // Prevent default browser reloading behaviour
+    event.preventDefault();
+
+    // Read form data
+    const form = event.target;
+    const formData = new FormData(form);
+
+    // Read object
+    const formJson = Object.fromEntries(formData.entries());
+    console.log(formJson);
+
+    ws.send(
+      JSON.stringify({
+        eventName: "SEND_QUESTION",
+        question: formJson.Question,
+        answer: formJson.Answer,
+      })
+    );
+  };
+
   return (
     <div className="m-auto">
-      <form action="" className="mx-auto grid max-w-md grid-cols-1 gap-4">
+      <form
+        onSubmit={handleSubmit}
+        className="mx-auto grid max-w-md grid-cols-1 gap-4"
+      >
         <label htmlFor="Question" className="font-medium">
           Question
         </label>
