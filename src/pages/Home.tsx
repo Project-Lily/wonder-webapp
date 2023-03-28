@@ -36,53 +36,10 @@ const createRoom = (data: any, ws: WebSocket) => {
 
 export default function Home(): JSX.Element {
   const [wsTrue, setWsTrue] = React.useState<boolean>(false);
-  // Demo example for a teacher connection
-
-  // const ws = new WebSocket("wss://lilly.arichernando.com/socket");
-  // ws.onopen = () => {
-  //   ws.onmessage = (data) => {
-  //     console.log(`My id is : ${data.data}`);
-  //     // Creates room and destroys own listener, this is so that this listener doesn't mess with future events
-  //     createRoom(data.data, ws);
-  //   };
-  //   console.log("Connected");
-  // };
 
   const handleCreateRoom = () => {
-    // Demo example for a teacher connection
-    // const ws = new WebSocket("wss://lilly.arichernando.com/socket");
-    // ws.onopen = () => {
-    //   ws.onmessage = (data) => {
-    //     console.log(`My id is : ${data.data}`);
-    //     // Creates room and destroys own listener, this is so that this listener doesn't mess with future events
-    //     createRoom(data.data, ws);
-    //   };
-    //   console.log("Connected");
-    // };
     setWsTrue(true);
   };
-
-  // const createRoom = (data: any, ws: WebSocket) => {
-  //   // MAKE SURE IT'S HTTPS, nginx is cursed
-  //   fetch("https://lilly.arichernando.com/node/teacher/join/", {
-  //     method: "POST",
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Content-Type": "application/json",
-  //       "Access-Control-Allow-Origin": "*",
-  //     },
-  //     body: JSON.stringify({
-  //       id: data,
-  //     }),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       ws.onmessage = (data) => {
-  //         console.log(data.data);
-  //       };
-  //     });
-  // };
 
   function CreateRoom() {
     return (
@@ -101,6 +58,7 @@ export default function Home(): JSX.Element {
     const handleSubmit = (event: any) => {
       // Prevent default browser reloading behaviour
       event.preventDefault();
+      event.target.reset(); // Clear form input
 
       // Read form data
       const form = event.target;
