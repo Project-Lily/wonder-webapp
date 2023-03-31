@@ -6,7 +6,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
-    https: true,
     hmr: {
         host: "projectlily.dev",
         protocol: "wss",

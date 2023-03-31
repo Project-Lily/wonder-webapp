@@ -58,7 +58,6 @@ export default function Home(): JSX.Element {
     const handleSubmit = (event: any) => {
       // Prevent default browser reloading behaviour
       event.preventDefault();
-      event.target.reset(); // Clear form input
 
       // Read form data
       const form = event.target;
@@ -75,6 +74,8 @@ export default function Home(): JSX.Element {
           answer: formJson.Answer,
         })
       );
+
+      event.target.reset(); // Clear form input
     };
 
     return (
