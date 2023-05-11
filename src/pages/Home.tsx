@@ -3,7 +3,7 @@ import React from "react";
 import InputBox from "../common/InputBox";
 import { config } from "../config/constants";
 
-const ws = new WebSocket("wss://${config.BASE_URL}/socket");
+const ws = new WebSocket(`wss://${config.BASE_URL}/socket`);
 ws.onopen = () => {
   ws.onmessage = (data) => {
     console.log(`My id is : ${data.data}`);
