@@ -1,8 +1,9 @@
 import React from "react";
 // import FormQnA from "../common/FormQnA";
 import InputBox from "../common/InputBox";
+import { config } from "../config/constants";
 
-const ws = new WebSocket("wss://lilly.arichernando.com/socket");
+const ws = new WebSocket("wss://${config.BASE_URL}/socket");
 ws.onopen = () => {
   ws.onmessage = (data) => {
     console.log(`My id is : ${data.data}`);
@@ -14,7 +15,7 @@ ws.onopen = () => {
 
 const createRoom = (data: any, ws: WebSocket) => {
   // MAKE SURE IT'S HTTPS, nginx is cursed
-  fetch("https://lilly.arichernando.com/node/teacher/join/", {
+  fetch(`https://${config.BASE_URL}/node/teacher/join/`, {
     method: "POST",
     headers: {
       Accept: "application/json",
